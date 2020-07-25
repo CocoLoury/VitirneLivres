@@ -38,12 +38,13 @@
                 if($_POST){            
                 
                     try{
-                        $query = "UPDATE livres SET titre=:titre, auteur=:auteur, resume=:resume, image=:image WHERE id = :id";
+                        $query = "UPDATE livres SET titre=:titre, auteur=:auteur, resume=:resume, type=:type, image=:image WHERE id = :id";
                         $stmt = $con->prepare($query);
                         
                         $titre=htmlspecialchars(strip_tags($_POST['titre']));
                         $auteur=htmlspecialchars(strip_tags($_POST['auteur']));
                         $resume=htmlspecialchars(strip_tags($_POST['resume']));
+                        $type=htmlspecialchars(strip_tags($_POST['type']));
                         $image=!empty($_FILES["image"]["name"])
                                 ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"])
                                 : "";
@@ -52,6 +53,7 @@
                         $stmt->bindParam(':titre', $titre);
                         $stmt->bindParam(':auteur', $auteur);
                         $stmt->bindParam(':resume', $resume);
+                        $stmt->bindParam(':type', $type);
                         $stmt->bindParam(':image', $image);
                         $stmt->bindParam(':id', $id);
 
@@ -117,7 +119,7 @@
                 }
             ?>
     
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}");?>" method="post" enctype="multipart/form-data">
                 <table class='table table-hover table-responsive table-bordered'>
                     <tr>
                         <td>Titre</td>
@@ -131,6 +133,21 @@
                         <td>Auteur</td>
                         <td><input type='text' name='auteur' value="<?php echo htmlspecialchars($auteur, ENT_QUOTES);?>" class='form-control'/></td>
                     </tr>
+                    <tr>
+                    <td>Type</td>
+                    <td>
+                    <div class="input-group mb-3">
+                        <select name='type' class="custom-select form-control" id="inputGroupSelect01" value="<?php echo htmlspecialchars($type, ENT_QUOTES);?>">
+                            <option selected>Choisir...</option>
+                            <option value="historique">Historique</option>
+                            <option value="Science fiction">Science fiction</option>
+                            <option value="Fantastique">Fantastique</option>
+                            <option value="Littérature française">Littérature française</option>
+                            <option value="Littérature classique">Littérature classique</option>
+                        </select>
+                    </div>
+                    </td>
+                </tr>
                     <tr>
                         <td>Photo</td>
                         <td><input type='file' name='image' class='form-control'><?php echo htmlspecialchars($image, ENT_QUOTES);?></td>

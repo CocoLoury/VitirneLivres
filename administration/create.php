@@ -17,12 +17,13 @@
                     include '../bdd/connexion.php';
                 
                     try{
-                        $query = "INSERT INTO livres SET titre=:titre, auteur=:auteur, resume=:resume, image=:image";
+                        $query = "INSERT INTO livres SET titre=:titre, auteur=:auteur, resume=:resume, type=:type, image=:image";
                         $stmt = $con->prepare($query);
                 
                         $titre=htmlspecialchars(strip_tags($_POST['titre']));
                         $auteur=htmlspecialchars(strip_tags($_POST['auteur']));
                         $resume=htmlspecialchars(strip_tags($_POST['resume']));
+                        $type=htmlspecialchars(strip_tags($_POST['type']));
                         $image=!empty($_FILES["image"]["name"])
                                 ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"])
                                 : "";
@@ -31,6 +32,7 @@
                         $stmt->bindParam(':titre', $titre);
                         $stmt->bindParam(':auteur', $auteur);
                         $stmt->bindParam(':resume', $resume);
+                        $stmt->bindParam(':type', $type);
                         $stmt->bindParam(':image', $image);
 
                         if($image){
@@ -108,6 +110,21 @@
                 <tr>
                     <td>Auteur</td>
                     <td><input type='text' name='auteur' class='form-control' /></td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td>
+                    <div class="input-group mb-3">
+                        <select name='type' class="custom-select form-control" id="inputGroupSelect01">
+                            <option selected>Choisir...</option>
+                            <option value="historique">Historique</option>
+                            <option value="Science fiction">Science fiction</option>
+                            <option value="Fantastique">Fantastique</option>
+                            <option value="Littérature française">Littérature française</option>
+                            <option value="Littérature classique">Littérature classique</option>
+                        </select>
+                    </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>Photo</td>

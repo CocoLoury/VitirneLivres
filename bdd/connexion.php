@@ -14,13 +14,4 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-
-//$response = $bdd->query('SELECT * FROM livres');
-
-/*while ($donnee = $response->fetch())
-{
-    echo $donnee['auteur'] . ' à écrit le livre ' . '<i>' . $donnee['titre'] . '</i>' . '<br/>';
-}
-$response->closeCursor();*/
-
 ?>

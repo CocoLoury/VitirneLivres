@@ -20,7 +20,7 @@
                 include '../bdd/connexion.php';
                 
                 try {
-                    $query = "SELECT id, titre, resume, auteur, image FROM livres WHERE id = ?";
+                    $query = "SELECT id, titre, resume, auteur, type, image FROM livres WHERE id = ?";
                     $stmt = $con->prepare($query);
                 
                     $stmt->bindParam(1, $id);
@@ -33,6 +33,7 @@
                     $titre = $row['titre'];
                     $resume = $row['resume'];
                     $auteur = $row['auteur'];
+                    $type = $row['type'];
                     $image = $row['image'];
                 }
                 
@@ -53,6 +54,10 @@
                 <tr>
                     <td>Auteur</td>
                     <td><?php echo htmlspecialchars($auteur, ENT_QUOTES);  ?></td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td><?php echo htmlspecialchars($type, ENT_QUOTES);  ?></td>
                 </tr>
                 <tr>
                     <td>Photo</td>
