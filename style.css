@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'AlexBrush-Regular';
+    src: url('AlexBrush-Regular.ttf') format('woff');
+
+    font-family: 'Quicksand-Regular';
+        src: url('Quicksand-Regular.otf') format('truetype');
+}
+
+h1
+{
+    font-size: 56px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-weight: 100;
+    color: #0B276C;
+}
+
+h2
+{
+    font-size: 20px;
+    font-family: 'Quicksand-Regular';
+    text-align: center;
+    color: #2284B2;
+}
+
+p
+{
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
+    font-style: italic;
+    color: black
+}
+
+h4
+{
+    font-size: 18px;
+    font-family: 'Quicksand-Regular';
+    text-align: center;
+    color: #2284B2;
+}
+
+em
+{
+    font-size: 18px;
+    font-family: 'Quicksand-Regular';
+    color: #0B276C;
+    text-decoration: normal;
+    font-style: normal;
+
+}
+
+.theme
+{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: left;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: underline;
+    color: black
+}
+
+.contact
+{
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.reading
+{
+    text-align: center;
+}
+
+body
+{
+    background-image: url("fond.jpg");
+    
+}
+
+#italique{
+    margin-top: 100px;
+}
