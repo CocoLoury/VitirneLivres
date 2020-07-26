@@ -6,3 +6,13 @@
 #column {
     margin-bottom: 25px;
 }
+
+.card-img {
+    text-align: center;
+    height: auto;
+    width: auto;
+}
+
+.card {
+    border: none;
+}

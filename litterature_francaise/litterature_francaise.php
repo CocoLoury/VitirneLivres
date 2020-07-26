@@ -33,10 +33,10 @@
                     {
                 ?>
                 <div class="col-sm-12" id="column">
-                    <div class="card mb-12">
+                    <div class="card border-0 mb-12">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <?php echo $donnee['image'] ? "<img class='card-img-top' src='../administration/uploads/{$donnee['image']}' alt='Image de présentation' />" : "No image found.";  ?>
+                                <?php echo $donnee['image'] ? "<img class='card-img' src='../administration/uploads/{$donnee['image']}' alt='Image de présentation' />" : "No image found.";  ?>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
