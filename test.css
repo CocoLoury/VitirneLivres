@@ -1,0 +1,17 @@
+.parallax {
+    display: flex;
+    background: url('autrefond.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+}
+
+.container {
+    margin-top: 25px;
+}

@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Inclure le fichier CSS -->
-        <link rel="stylesheet" href="historique.css" />
+        <link rel="stylesheet" href="litterature_francaise.css" />
         <!-- A mettre pour utilisé Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>Historique</title>
+        <title>Française</title>
     </head>
     <body>
         <?php
@@ -23,7 +23,7 @@
             }
         ?>
         <div class="container">
-            <h1 class="title">Livres historique</h1>
+            <h1 class="title">Livres littérature française</h1>
             <?php
                 if($response != null){
             ?>
@@ -32,18 +32,22 @@
                     while ($donnee = $response->fetch())
                     {
                 ?>
-                <div class="col-sm-4" id="column">
-                    <div class="card">
-                        <?php echo $donnee['image'] ? "<img class='card-img-top' src='../administration/uploads/{$donnee['image']}' alt='Image de présentation' />" : "No image found.";  ?>
-                        <div class="card-body">
-                        <h5 class="card-title"><?php echo $donnee['titre'] ?></h5>
-                        <p class="card-text"><?php echo $donnee['resume'] ?></p>
-                        <a href="#" class="btn btn-primary">En savoir plus</a>
+                <div class="col-sm-12" id="column">
+                    <div class="card mb-12">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <?php echo $donnee['image'] ? "<img class='card-img-top' src='../administration/uploads/{$donnee['image']}' alt='Image de présentation' />" : "No image found.";  ?>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $donnee['titre'] ?></h5>
+                                    <p class="card-text"><?php echo $donnee['resume'] ?></p>
+                                    <p class="card-text"><small class="text-muted"><?php echo $donnee['auteur'] ?></small></p>
+                                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted"><?php echo $donnee['auteur'] ?></small>
-                        </div>
-                    </div>
+                    </div>    
                 </div>
                 <?php
                     }
